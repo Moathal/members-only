@@ -27,6 +27,9 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# A set of responders modules to dry up your Rails app. [https://github.com/heartcombo/responders]
+gem "responders"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
