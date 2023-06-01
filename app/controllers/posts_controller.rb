@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  before_action :authorize_user!, only: [:edit, :update]
+  # before_action :authorize_user!, only: [:edit, :update]
 
   def index
     @posts = Post.all.order("created_at DESC")
@@ -16,11 +16,12 @@ class PostsController < ApplicationController
   end
   
   def create
+    # puts "params: #{post_params.inspect}"
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
       flash[:success] = "Post is added successfully"
-        format.html{ redirect_to posts_path }
+        redirect_to posts_path
     else
       flash[:alert] = @user.errors.full_messsage
       respond_to do |format|
