@@ -1,0 +1,8 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.content %></p>
+<% if current_user && current_user.id === @post.user_id %>
+  <small><%= @post.user.firstname %> <%= @post.user.lastname %></small>
+  <%= link_to 'Edit', edit_post_path(@post.id) %>
+<% end %>
+
+<%= link_to 'Add new', new_post_path %>

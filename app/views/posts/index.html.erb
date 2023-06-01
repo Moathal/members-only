@@ -1,0 +1,16 @@
+<h1>Posts</h1>
+
+<%= @posts.foreach do | post | %>
+    <h3><% Post.title %></h3>
+    <p><% post.content %></p>
+    <%= link_to 'Show post', posts_post_path(post.id) %>
+<% end %>
+
+<%= link_to 'Add new', new_post_path %>
+
+<% if !current_user %>
+    <%= link_to 'Sign in', new_user_session_path %>
+    <%= link_to 'Sign up', new_user_registration_path %>
+<% else %>
+    <%= link_to 'Edit my profile', edit_user_registration_path %>
+<% end %>
